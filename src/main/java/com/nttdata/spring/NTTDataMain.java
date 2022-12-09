@@ -84,6 +84,9 @@ public class NTTDataMain implements CommandLineRunner {
 		for (final Customer ee : results) {
 			log.info("Cliente con id {} : {}", ee.getCustomerId(), ee);
 		}
+		
+		//Busca cliente por nombre y apellidos
+		log.info("Cliente Manuel Rodriguez Martinez: {}",customerService.getCustomerByNameAndSurnames("Manuel","Rodriguez Martinez"));
 	}
 
 }

@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.nttdata.spring.repository.CustomCustomerRepositoryImpl;
 import com.nttdata.spring.repository.Customer;
 import com.nttdata.spring.repository.CustomerRepository;
 
@@ -22,9 +21,6 @@ public class CustomerManagementServiceImpl implements CustomerManagementServiceI
 	@Autowired
 	CustomerRepository customerRepo;
 
-	@Autowired
-	CustomCustomerRepositoryImpl customRepo;
-
 	@Override
 	public List<Customer> getAllCustomers() {
 		return customerRepo.findAll();
@@ -32,7 +28,7 @@ public class CustomerManagementServiceImpl implements CustomerManagementServiceI
 
 	@Override
 	public Customer getCustomerByNameAndSurnames(String name, String surnames) {
-		return customRepo.getCustomerByNameAndSurnames(name, surnames);
+		return customerRepo.findByNameAndSurnames(name, surnames);
 	}
 
 	@Override
